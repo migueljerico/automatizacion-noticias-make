@@ -1,7 +1,7 @@
 # 🤖 Automatización de flujos con Make
 ## Noticias de IA filtradas, traducidas, revisadas por humanos y enviadas a Telegram
 
-> Flujo de automatización completo construido con Make (Integromat) que obtiene noticias de IA desde RSS, las filtra, traduce y publica en un grupo de Telegram tras revisión humana.
+> Flujo de automatización completo construido con Make (antiguo Integromat) que obtiene noticias de IA desde RSS, las filtra, traduce y publica en un grupo de Telegram tras revisión humana.
 
 ---
 
