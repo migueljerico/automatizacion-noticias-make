@@ -6,7 +6,7 @@
 ![Estado](https://img.shields.io/badge/Estado-Completado-4CAF50?style=for-the-badge)
 ![Tipo](https://img.shields.io/badge/Práctica-Automatización%20No%20Code-FF6B6B?style=for-the-badge)
 
-> **Ejercicio Práctico — Automatización de Flujos con Make (Integromat)**  
+> **Ejercicio Práctico — Automatización de Flujos con Make (anteriormente conocido como Integromat)**  
 > Noticias de IA filtradas, traducidas, revisadas por humanos y enviadas a **Telegram**
 
 ---
@@ -213,5 +213,5 @@ Este ejercicio forma parte del programa de formación en **Análisis de Datos**,
 ---
 
 <p align="center">
-  <sub>Desarrollado por <a href="https://github.com/migueljerico">@migueljerico</a> · 2025</sub>
+  <sub>Desarrollado por <a href="https://github.com/migueljerico">@migueljerico</a> · 2026</sub>
 </p>
