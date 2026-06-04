@@ -1,7 +1,13 @@
-# 🤖 Automatización de flujos con Make
-## Noticias de IA filtradas, traducidas, revisadas por humanos y enviadas a Telegram
+# 🤖 Automatización de Noticias IA — Flujo con Make
 
-> Flujo de automatización completo construido con Make (antiguo Integromat) que obtiene noticias de IA desde RSS, las filtra, traduce y publica en un grupo de Telegram tras revisión humana.
+![Make](https://img.shields.io/badge/Make-Automatización-6C5CE7?style=for-the-badge&logo=make&logoColor=white)
+![Telegram](https://img.shields.io/badge/Telegram-Bot-26A5E4?style=for-the-badge&logo=telegram&logoColor=white)
+![Google Sheets](https://img.shields.io/badge/Google%20Sheets-Revisión%20Humana-34A853?style=for-the-badge&logo=googlesheets&logoColor=white)
+![Estado](https://img.shields.io/badge/Estado-Completado-4CAF50?style=for-the-badge)
+![Tipo](https://img.shields.io/badge/Práctica-Automatización%20No%20Code-FF6B6B?style=for-the-badge)
+
+> **Ejercicio Práctico — Automatización de Flujos con Make (Integromat)**  
+> Noticias de IA filtradas, traducidas, revisadas por humanos y enviadas a **Telegram**
 
 ---
 
@@ -9,11 +15,11 @@
 
 Este flujo representa un caso realista y completo de automatización porque integra **todos los elementos clave**:
 
-- **Disparador claro:** RSS de TechCrunch, ejecutado diariamente.
-- **Intervención de IA:** Traducción automática EN→ES mediante MyMemory API.
-- **Condición IF/Else:** Filtro que descarta artículos irrelevantes (títulos con "review" o "smart").
-- **Salida verificable:** Envío final al grupo de Telegram.
-- **Revisión humana:** Validación manual mediante Google Sheets antes de publicar.
+- **Disparador claro:** RSS de TechCrunch, ejecutado diariamente
+- **Intervención de IA:** Traducción automática EN→ES mediante MyMemory API
+- **Condición IF/Else:** Filtro que descarta artículos irrelevantes (títulos con «review» o «smart»)
+- **Salida verificable:** Envío final al grupo de Telegram
+- **Revisión humana:** Validación manual mediante Google Sheets antes de publicar
 
 Resuelve un problema real: obtener noticias relevantes de IA, filtrarlas, traducirlas y publicarlas sin ruido ni contenido irrelevante.
 
@@ -22,10 +28,10 @@ Resuelve un problema real: obtener noticias relevantes de IA, filtrarlas, traduc
 ## 🔄 Diagrama del flujo
 
 ```
-RSS TechCrunch → Filtro IF/Else → HTTP MyMemory (título) 
-                                → HTTP MyMemory (resumen)
-                                → Google Sheets (revisión humana)
-                                → Router → Telegram Bot
+RSS TechCrunch → Filtro IF/Else → HTTP MyMemory (título)
+                               → HTTP MyMemory (resumen)
+                               → Google Sheets (revisión humana)
+                               → Router → Telegram Bot
 ```
 
 ---
@@ -33,30 +39,29 @@ RSS TechCrunch → Filtro IF/Else → HTTP MyMemory (título)
 ## 🧩 Elementos del flujo
 
 ### Entrada
-- **Fuente RSS:** TechCrunch
-- Recupera el artículo más reciente sobre IA.
+- **Fuente RSS:** TechCrunch — recupera el artículo más reciente sobre IA
 
 ### Filtro (IF/Else)
-- Excluye artículos cuyo título contenga `"review"` o `"smart"`.
-- Evita contenido no relacionado con IA.
+- Excluye artículos cuyo título contenga `"review"` o `"smart"`
+- Evita contenido no relacionado con IA
 
 ### Procesamiento con IA
-- Traducción automática del título (EN→ES).
-- Traducción automática del resumen (EN→ES).
-- API gratuita MyMemory, sin registro.
+- Traducción automática del título (EN→ES)
+- Traducción automática del resumen (EN→ES)
+- API gratuita MyMemory, sin registro
 
 ### Revisión humana
-- Google Sheets recibe cada noticia traducida.
-- Un revisor marca manualmente si debe enviarse (`SI` / vacío).
-- El flujo solo continúa si la columna F está marcada como `"SI"`.
+- Google Sheets recibe cada noticia traducida
+- Un revisor marca manualmente si debe enviarse (`SI` / vacío)
+- El flujo solo continúa si la columna F está marcada como `"SI"`
 
 ### Salida
-- Envío al grupo de Telegram mediante bot.
-- Mensaje formateado en Markdown con título, resumen y enlace.
+- Envío al grupo de Telegram mediante bot
+- Mensaje formateado en Markdown con título, resumen y enlace
 
 ---
 
-## 🛠️ Herramientas utilizadas (todo gratuito)
+## 🛠️ Herramientas utilizadas
 
 | Herramienta | Uso | Coste | Límite gratuito |
 |---|---|---|---|
@@ -98,16 +103,15 @@ RSS TechCrunch → Filtro IF/Else → HTTP MyMemory (título)
 
 ### Paso 1: Crear el bot de Telegram con BotFather
 
-1. Abre Telegram y busca `@BotFather` (tick azul de verificación).
-2. Envía `/start` y luego `/newbot`.
-3. Asigna un nombre visible al bot (p.ej.: `Noticias IA`).
-4. Asigna un username único terminado en `bot` (p.ej.: `@IA_NewsBot`).
+1. Abre Telegram y busca `@BotFather` (tick azul de verificación)
+2. Envía `/start` y luego `/newbot`
+3. Asigna un nombre visible al bot (p.ej.: `Noticias IA`)
+4. Asigna un username único terminado en `bot` (p.ej.: `@IA_NewsBot`)
 5. BotFather te proporcionará un **Token de acceso** con este formato:
    ```
    123456789:AAFxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
    ```
    > ⚠️ Guárdalo en un lugar seguro. Es la contraseña de tu bot.
-
 6. Desactiva el modo privacidad para que el bot pueda leer mensajes en grupos:
    ```
    /setprivacy → selecciona tu bot → Disable
@@ -115,35 +119,27 @@ RSS TechCrunch → Filtro IF/Else → HTTP MyMemory (título)
 
 ### Paso 2: Crear el grupo de Telegram y añadir el bot
 
-1. Crea un nuevo grupo en Telegram (nombre libre).
-2. Ve a **Editar grupo → Añadir miembros** y busca tu `@NombreBot`.
+1. Crea un nuevo grupo en Telegram (nombre libre)
+2. Ve a **Editar grupo → Añadir miembros** y busca tu `@NombreBot`
 
 ### Paso 3: Obtener el Chat ID del grupo
 
-1. Con el bot dentro del grupo, escribe cualquier mensaje.
+1. Con el bot dentro del grupo, escribe cualquier mensaje
 2. Abre esta URL en el navegador (reemplaza `TOKEN` por el tuyo):
    ```
    https://api.telegram.org/botTOKEN/getUpdates
    ```
 3. En el JSON de respuesta, busca el campo `"id"` dentro de `"chat"`:
    ```json
-   {
-     "chat": {
-       "id": -1009999999999,
-       "title": "Nombre de tu grupo"
-     }
-   }
+   { "chat": { "id": -1009999999999, "title": "Nombre de tu grupo" } }
    ```
    > ⚠️ El Chat ID de un grupo **siempre empieza por signo negativo (–)**. Cópialo completo.
-
-   > Si el JSON aparece vacío, escribe otro mensaje en el grupo y recarga. Si sigue vacío, repite el `/setprivacy`, expulsa el bot y vuelve a añadirlo.
 
 ### Paso 4: Configurar el flujo en Make
 
 #### Módulo 1 — RSS TechCrunch
 - **URL del feed:** `https://techcrunch.com/feed/`
-- **Frecuencia:** Diaria (a la hora que prefieras)
-- **Máx. resultados:** 2 artículos
+- **Frecuencia:** Diaria · **Máx. resultados:** 2 artículos
 
 #### Módulo 2 — Filtro IF/Else
 
@@ -160,27 +156,19 @@ RSS TechCrunch → Filtro IF/Else → HTTP MyMemory (título)
 | Method | GET |
 | Parámetro `q` | `{{1.title}}` |
 | Parámetro `langpair` | `en\|es` |
-| Variable resultado | `Data > responseData > translatedText` |
 
 #### Módulo 4 — HTTP (traducción del resumen)
-
-| Parámetro | Valor |
-|---|---|
-| URL | `https://api.mymemory.translated.net/get` |
-| Method | GET |
-| Parámetro `q` | `{{1.summary}}` |
-| Parámetro `langpair` | `en\|es` |
-| Variable resultado | `Data > responseData > translatedText` |
+Igual que el módulo 3, sustituyendo `{{1.title}}` por `{{1.summary}}`
 
 #### Módulo 5 — Google Sheets: Add a Row
-Columnas recomendadas: `Título traducido | Resumen traducido | URL | Fecha | Revisado (SI/vacío)`
+Columnas: `Título traducido | Resumen traducido | URL | Fecha | Revisado (SI/vacío)`
 
 #### Módulo 6 — Google Sheets: Search Rows
-- Busca filas donde la columna `Revisado = "SI"`.
+Busca filas donde la columna `Revisado = "SI"`
 
 #### Módulo 7 — Router (IF/Else)
-- **Sin filas aprobadas:** el flujo termina.
-- **Con filas aprobadas:** continúa a Telegram.
+- **Sin filas aprobadas:** el flujo termina
+- **Con filas aprobadas:** continúa a Telegram
 
 #### Módulo 8 — Telegram: Send a Message
 
@@ -188,9 +176,8 @@ Columnas recomendadas: `Título traducido | Resumen traducido | URL | Fecha | Re
 |---|---|
 | Chat ID | Tu Chat ID (con signo negativo) |
 | Parse Mode | Markdown |
-| Texto | Ver plantilla abajo |
 
-**Plantilla de mensaje Markdown:**
+**Plantilla de mensaje:**
 ```
 📰 *{{titulo_traducido}}*
 
@@ -219,6 +206,12 @@ Columnas recomendadas: `Título traducido | Resumen traducido | URL | Fecha | Re
 
 ---
 
-## 📄 Licencia
+## 📚 Contexto formativo
 
-MIT — libre para usar, modificar y distribuir.
+Este ejercicio forma parte del programa de formación en **Análisis de Datos**, dentro del módulo de herramientas de automatización no-code. El objetivo es diseñar flujos de trabajo complejos con múltiples módulos, integrar fuentes externas (RSS, APIs, bots) y aplicar lógica condicional y revisión humana en un pipeline de datos real.
+
+---
+
+<p align="center">
+  <sub>Desarrollado por <a href="https://github.com/migueljerico">@migueljerico</a> · 2025</sub>
+</p>
