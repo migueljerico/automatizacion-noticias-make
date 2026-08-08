@@ -11,6 +11,24 @@
 
 ---
 
+## 📸 Vista previa del flujo
+
+## 🔄 Diagrama del flujo en Make
+
+![Captura del flujo de automatización en Make](screenshots/Captura_Diagrama_Make.png)
+*Flujo completo: RSS → filtro → traducción → revisión humana → Telegram*
+
+---
+
+## 📸 Vista previa del grupo de Telegram
+
+## 💬 Mensaje enviado al grupo de Telegram
+
+![Captura del mensaje en Telegram](screenshots/Captura_Telegram_IA.png)
+*Noticia traducida y formateada lista para los lectores*
+
+---
+
 ## 📋 Descripción
 
 Este proyecto implementa un flujo de automatización completo utilizando Make, que integra múltiples servicios para la curación y distribución de noticias sobre inteligencia artificial. El flujo se encarga de obtener artículos recientes desde el feed RSS de TechCrunch, filtrar aquellos que no sean relevantes (como reseñas o contenido sobre dispositivos «smart»), traducir automáticamente el título y resumen del inglés al español mediante la API gratuita MyMemory, y almacenar los resultados en una hoja de Google Sheets para una revisión humana antes de su publicación final en un grupo de Telegram.
@@ -176,9 +194,5 @@ El repositorio contiene únicamente la documentación del flujo de automatizaci�
 Este ejercicio forma parte del programa de formación en **Análisis de Datos**, dentro del módulo de herramientas de automatización no-code. El objetivo es diseñar flujos de trabajo complejos con múltiples módulos, integrar fuentes externas (RSS, APIs, bots) y aplicar lógica condicional y revisión humana en un pipeline de datos real.
 
 ---
-
-<p align="center">
-  <sub>Desarrollado por <a href="https://github.com/migueljerico">@migueljerico</a> · 2026</sub>
-</p>
 
 <p align="center">Creado por <a href="https://github.com/migueljerico">@migueljerico</a> y documentado por QwenCloud (DeepSeek V4 Flash (free)) desde la App Asistente de IA · 2026</p>
