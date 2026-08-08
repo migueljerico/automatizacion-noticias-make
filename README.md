@@ -25,6 +25,7 @@
 ## 💬 Mensaje enviado al grupo de Telegram
 
 ![Captura del mensaje en Telegram](screenshots/Captura_Telegram_IA.png)
+
 *Noticia traducida y formateada lista para los lectores*
 
 ---
